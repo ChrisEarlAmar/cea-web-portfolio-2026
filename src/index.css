@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* Custom color variables */
+:root {
+  --color-bg: #0a0f0d;
+  --color-bg-secondary: #111915;
+  --color-bg-card: #16241f;
+  --color-primary: #1F6F5F;
+  --color-secondary: #2FA084;
+  --color-accent: #6FCF97;
+  --color-text: #EEEEEE;
+  --color-text-muted: #9ca3af;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-bg);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(47, 160, 132, 0.3);
+  color: var(--color-text);
+}
