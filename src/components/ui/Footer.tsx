@@ -12,7 +12,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-12 bg-[#0a0f0d] border-t border-[#1F6F5F]/20">
+    <footer className="py-12 bg-[#141c18] border-t border-[#1F6F5F]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo & Copyright */}
@@ -20,7 +20,7 @@ export default function Footer() {
             <span className="text-2xl font-bold bg-gradient-to-r from-[#2FA084] to-[#6FCF97] bg-clip-text text-transparent">
               {personalInfo.name.split(' ').map(n => n[0]).join('')}
             </span>
-            <span className="text-[#9ca3af]">
+            <span className="text-[#b8c5bf]">
               &copy; {currentYear} {personalInfo.name}
             </span>
           </div>
@@ -32,7 +32,7 @@ export default function Footer() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-[#9ca3af] hover:text-[#6FCF97] transition-colors text-sm"
+                className="text-[#b8c5bf] hover:text-[#6FCF97] transition-colors text-sm"
               >
                 {link.name}
               </a>
@@ -45,7 +45,7 @@ export default function Footer() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 bg-[#111915] rounded-lg flex items-center justify-center text-[#9ca3af] hover:text-[#EEEEEE] hover:bg-[#16241f] transition-all duration-200 border border-[#1F6F5F]/20"
+              className="w-10 h-10 bg-[#1e2f28] rounded-lg flex items-center justify-center text-[#b8c5bf] hover:text-[#EEEEEE] hover:bg-[#243a31] transition-all duration-200 border border-[#1F6F5F]/20"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@ export default function Footer() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 bg-[#111915] rounded-lg flex items-center justify-center text-[#9ca3af] hover:text-[#EEEEEE] hover:bg-[#16241f] transition-all duration-200 border border-[#1F6F5F]/20"
+              className="w-10 h-10 bg-[#1e2f28] rounded-lg flex items-center justify-center text-[#b8c5bf] hover:text-[#EEEEEE] hover:bg-[#243a31] transition-all duration-200 border border-[#1F6F5F]/20"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@ export default function Footer() {
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="w-10 h-10 bg-[#111915] rounded-lg flex items-center justify-center text-[#9ca3af] hover:text-[#EEEEEE] hover:bg-[#16241f] transition-all duration-200 border border-[#1F6F5F]/20"
+              className="w-10 h-10 bg-[#1e2f28] rounded-lg flex items-center justify-center text-[#b8c5bf] hover:text-[#EEEEEE] hover:bg-[#243a31] transition-all duration-200 border border-[#1F6F5F]/20"
               aria-label="Email"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +77,7 @@ export default function Footer() {
 
         {/* Bottom text */}
         <div className="mt-8 pt-8 border-t border-[#1F6F5F]/10 text-center">
-          <p className="text-[#9ca3af]/60 text-sm">
+          <p className="text-[#b8c5bf]/60 text-sm">
             Built with React, TypeScript & Tailwind CSS
           </p>
         </div>

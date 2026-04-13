@@ -2,7 +2,7 @@ import { CheckCircle, Zap, Code2, Shield } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-[#0a0f0d]">
+    <section id="about" className="py-24 bg-[#141c18]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -19,20 +19,20 @@ export default function About() {
               Fullstack Developer with Backend Focus
             </h3>
             
-            <p className="text-[#9ca3af] leading-relaxed">
+            <p className="text-[#b8c5bf] leading-relaxed">
               I am a <span className="text-[#2FA084] font-medium">Fullstack Web Developer</span> with over 
               <span className="text-[#2FA084] font-medium"> 2 years of professional experience</span> building 
               scalable back-office systems and modern web applications. My expertise lies in developing 
               enterprise-grade solutions that solve real business problems.
             </p>
 
-            <p className="text-[#9ca3af] leading-relaxed">
+            <p className="text-[#b8c5bf] leading-relaxed">
               Currently working at <span className="text-[#6FCF97] font-medium">DecoArts Marketing / CitiHardware</span>, 
               I specialize in backend-heavy development, creating robust systems that handle complex business 
               logic, integrate with enterprise ERP solutions, and serve hundreds of users across multiple locations.
             </p>
 
-            <p className="text-[#9ca3af] leading-relaxed">
+            <p className="text-[#b8c5bf] leading-relaxed">
               I&apos;m passionate about writing clean, maintainable code and architecting solutions that scale. 
               My approach combines technical excellence with a deep understanding of business requirements, 
               ensuring that every project I deliver creates measurable impact.
@@ -40,24 +40,24 @@ export default function About() {
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-6">
-              <div className="text-center p-4 bg-[#111915]/50 rounded-xl border border-[#1F6F5F]/20">
+              <div className="text-center p-4 bg-[#1e2f28]/50 rounded-xl border border-[#1F6F5F]/20">
                 <div className="text-3xl font-bold text-[#2FA084] mb-1">2+</div>
-                <div className="text-sm text-[#9ca3af]">Years Experience</div>
+                <div className="text-sm text-[#b8c5bf]">Years Experience</div>
               </div>
-              <div className="text-center p-4 bg-[#111915]/50 rounded-xl border border-[#1F6F5F]/20">
+              <div className="text-center p-4 bg-[#1e2f28]/50 rounded-xl border border-[#1F6F5F]/20">
                 <div className="text-3xl font-bold text-[#6FCF97] mb-1">120+</div>
-                <div className="text-sm text-[#9ca3af]">Stores Served</div>
+                <div className="text-sm text-[#b8c5bf]">Stores Served</div>
               </div>
-              <div className="text-center p-4 bg-[#111915]/50 rounded-xl border border-[#1F6F5F]/20">
+              <div className="text-center p-4 bg-[#1e2f28]/50 rounded-xl border border-[#1F6F5F]/20">
                 <div className="text-3xl font-bold text-[#6FCF97] mb-1">∞</div>
-                <div className="text-sm text-[#9ca3af]">Problems Solved</div>
+                <div className="text-sm text-[#b8c5bf]">Problems Solved</div>
               </div>
             </div>
           </div>
 
           {/* Right Content - Skills Preview */}
           <div className="space-y-6">
-            <div className="p-6 bg-[#111915] rounded-2xl border border-[#1F6F5F]/20">
+            <div className="p-6 bg-[#1e2f28] rounded-2xl border border-[#1F6F5F]/20">
               <h4 className="text-lg font-semibold text-[#EEEEEE] mb-6">What I Do Best</h4>
               
               <div className="space-y-4">
@@ -89,7 +89,7 @@ export default function About() {
                     </div>
                     <div>
                       <h5 className="font-medium text-[#EEEEEE]">{item.title}</h5>
-                      <p className="text-sm text-[#9ca3af]">{item.description}</p>
+                      <p className="text-sm text-[#b8c5bf]">{item.description}</p>
                     </div>
                   </div>
                 ))}

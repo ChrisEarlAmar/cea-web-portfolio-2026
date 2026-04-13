@@ -42,7 +42,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#0a0f0d]/90 backdrop-blur-md border-b border-[#1F6F5F]/20 py-3'
+          ? 'bg-[#141c18]/90 backdrop-blur-md border-b border-[#1F6F5F]/20 py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -67,7 +67,7 @@ export default function Navbar() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeSection === link.href.replace('#', '')
                     ? 'text-[#6FCF97] bg-[#1F6F5F]/10'
-                    : 'text-[#9ca3af] hover:text-[#EEEEEE] hover:bg-[#16241f]/50'
+                    : 'text-[#b8c5bf] hover:text-[#EEEEEE] hover:bg-[#243a31]/50'
                 }`}
               >
                 {link.name}
@@ -78,7 +78,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-[#9ca3af] hover:text-[#EEEEEE] hover:bg-[#16241f]/50 transition-colors"
+            className="md:hidden p-2 rounded-lg text-[#b8c5bf] hover:text-[#EEEEEE] hover:bg-[#243a31]/50 transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -91,7 +91,7 @@ export default function Navbar() {
             isMobileMenuOpen ? 'max-h-96 mt-4' : 'max-h-0'
           }`}
         >
-          <div className="bg-[#111915]/95 backdrop-blur-md rounded-xl border border-[#1F6F5F]/20 p-2">
+          <div className="bg-[#1e2f28]/95 backdrop-blur-md rounded-xl border border-[#1F6F5F]/20 p-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -100,7 +100,7 @@ export default function Navbar() {
                 className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeSection === link.href.replace('#', '')
                     ? 'text-[#6FCF97] bg-[#1F6F5F]/10'
-                    : 'text-[#9ca3af] hover:text-[#EEEEEE] hover:bg-[#16241f]/50'
+                    : 'text-[#b8c5bf] hover:text-[#EEEEEE] hover:bg-[#243a31]/50'
                 }`}
               >
                 {link.name}

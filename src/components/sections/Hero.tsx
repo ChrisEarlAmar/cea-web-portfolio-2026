@@ -13,14 +13,14 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-28 md:pt-20"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f0d] via-[#111915] to-[#0a0f0d]" />
+      {/* Background gradient - lighter */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#141c18] via-[#1a2520] to-[#141c18]" />
       
-      {/* Grid pattern overlay */}
+      {/* Grid pattern overlay - slightly more visible */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.05]"
         style={{
           backgroundImage: `linear-gradient(to right, #2FA084 1px, transparent 1px),
                             linear-gradient(to bottom, #2FA084 1px, transparent 1px)`,
@@ -28,24 +28,24 @@ export default function Hero() {
         }}
       />
 
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#1F6F5F]/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#2FA084]/10 rounded-full blur-3xl" />
+      {/* Gradient orbs - lighter opacity */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#1F6F5F]/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#2FA084]/20 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Profile Image Placeholder */}
+        {/* Profile Image - using logo.png */}
         <div className="mb-8 flex justify-center">
           <div className="relative">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-[#1F6F5F] to-[#2FA084] p-1">
-              <div className="w-full h-full rounded-full bg-[#0a0f0d] flex items-center justify-center overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-[#1a2a24] to-[#16241f] flex items-center justify-center">
-                  <span className="text-4xl md:text-5xl font-bold text-[#6FCF97]">
-                    {personalInfo.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
+              <div className="w-full h-full rounded-full bg-[#141c18] flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/logo.png" 
+                  alt="Logo" 
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
             </div>
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[#6FCF97] rounded-full border-4 border-[#0a0f0d]" />
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[#6FCF97] rounded-full border-4 border-[#141c18]" />
           </div>
         </div>
 
@@ -61,43 +61,46 @@ export default function Hero() {
           </span>
         </h2>
 
-        {/* Tagline */}
-        <p className="text-lg md:text-xl text-[#9ca3af] max-w-2xl mx-auto mb-10">
+        {/* Tagline - lighter text color */}
+        <p className="text-lg md:text-xl text-[#b8c0c5] max-w-2xl mx-auto mb-10">
           {personalInfo.tagline}
         </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        {/* CTA Buttons - icon only on mobile, text+icon on sm+ */}
+        <div className="flex flex-row items-center justify-center gap-4 mb-16">
           <a
             href="#projects"
             onClick={(e) => handleNavClick(e, '#projects')}
-            className="group px-8 py-4 bg-[#1F6F5F] hover:bg-[#2FA084] text-white font-medium rounded-xl transition-all duration-200 flex items-center gap-2"
+            className="group w-12 h-12 sm:w-auto sm:h-auto sm:px-8 sm:py-4 bg-[#1F6F5F] hover:bg-[#2FA084] text-white font-medium rounded-xl transition-all duration-200 flex items-center justify-center gap-0 sm:gap-2"
+            title="View Projects"
           >
-            View Projects
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            <span className="hidden sm:inline">View Projects</span>
+            <ArrowRight className="w-5 h-5 sm:transition-transform sm:group-hover:translate-x-1" />
           </a>
           <a
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 bg-[#16241f] hover:bg-[#1a2a24] text-[#EEEEEE] font-medium rounded-xl transition-all duration-200 border border-[#1F6F5F]/30 flex items-center gap-2"
+            className="w-12 h-12 sm:w-auto sm:h-auto sm:px-8 sm:py-4 bg-[#1e2f28] hover:bg-[#243a31] text-[#EEEEEE] font-medium rounded-xl transition-all duration-200 border border-[#1F6F5F]/30 flex items-center justify-center gap-0 sm:gap-2"
+            title="GitHub"
           >
+            <span className="hidden sm:inline">GitHub</span>
             <GitBranch className="w-5 h-5" />
-            GitHub
           </a>
           <a
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 bg-[#16241f] hover:bg-[#1a2a24] text-[#EEEEEE] font-medium rounded-xl transition-all duration-200 border border-[#1F6F5F]/30 flex items-center gap-2"
+            className="w-12 h-12 sm:w-auto sm:h-auto sm:px-8 sm:py-4 bg-[#1e2f28] hover:bg-[#243a31] text-[#EEEEEE] font-medium rounded-xl transition-all duration-200 border border-[#1F6F5F]/30 flex items-center justify-center gap-0 sm:gap-2"
+            title="LinkedIn"
           >
+            <span className="hidden sm:inline">LinkedIn</span>
             <Globe className="w-5 h-5" />
-            LinkedIn
           </a>
         </div>
 
-        {/* Scroll indicator - positioned below buttons */}
-        <div className="flex justify-center">
+        {/* Scroll indicator - positioned at bottom with more space */}
+        <div className="absolute bottom-2 left-0 right-0 flex justify-center">
           <a
             href="#about"
             onClick={(e) => handleNavClick(e, '#about')}
