@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chris Earl Amar - Fullstack Web Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1F6F5F',
+            secondary: '#2FA084',
+            accent: '#6FCF97',
+            dark: '#141c18',
+            darker: '#0a0f0d',
+            card: '#1e2f28',
+            textMuted: '#b8c5bf',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-text {
+      background: linear-gradient(to right, #2FA084, #6FCF97);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .grid-pattern {
+      background-image: linear-gradient(to right, #2FA084 1px, transparent 1px),
+                        linear-gradient(to bottom, #2FA084 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.05;
+    }
+    .animate-bounce {
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .mobile-menu.open {
+      max-height: 400px;
+    }
+  </style>
+</head>
+<body class="bg-dark text-white min-h-screen">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        <a href="#home" class="text-xl font-bold gradient-text">CEA</a>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="#home" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-card/50 transition-all">Home</a>
+          <a href="#about" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-card/50 transition-all">About</a>
+          <a href="#experience" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-card/50 transition-all">Experience</a>
+          <a href="#projects" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-card/50 transition-all">Projects</a>
+          <a href="#skills" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-card/50 transition-all">Skills</a>
+          <a href="#contact" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-card/50 transition-all">Contact</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-textMuted hover:text-white hover:bg-card/50 transition-colors">
+          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="bg-card/95 backdrop-blur-md rounded-xl border border-primary/20 p-2 mt-4">
+          <a href="#home" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-darker/50 transition-all">Home</a>
+          <a href="#about" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-darker/50 transition-all">About</a>
+          <a href="#experience" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-darker/50 transition-all">Experience</a>
+          <a href="#projects" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-darker/50 transition-all">Projects</a>
+          <a href="#skills" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-darker/50 transition-all">Skills</a>
+          <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-textMuted hover:text-white hover:bg-darker/50 transition-all">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-28 md:pt-20">
+    <!-- Background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-dark via-[#1a2520] to-dark"></div>
+    
+    <!-- Grid pattern overlay -->
+    <div class="absolute inset-0 grid-pattern"></div>
+
+    <!-- Gradient orbs -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Profile Image -->
+      <div class="mb-8 flex justify-center">
+        <div class="relative">
+          <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-primary to-secondary p-1">
+            <div class="w-full h-full rounded-full bg-dark flex items-center justify-center overflow-hidden">
+              <img src="../public/logo.png" alt="Logo" class="w-full h-full object-cover rounded-full">
+            </div>
+          </div>
+          <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-accent rounded-full border-4 border-dark"></div>
+        </div>
+      </div>
+
+      <!-- Name -->
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+        <span class="text-white">Chris Earl Amar</span>
+      </h1>
+
+      <!-- Title -->
+      <h2 class="text-xl md:text-2xl lg:text-3xl font-medium mb-6">
+        <span class="gradient-text">Fullstack Web Developer</span>
+      </h2>
+
+      <!-- Tagline -->
+      <p class="text-lg md:text-xl text-textMuted max-w-2xl mx-auto mb-10">
+        Building scalable back-office systems and modern web applications
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-row items-center justify-center gap-4 mb-16">
+        <a href="#projects" class="group w-12 h-12 sm:w-auto sm:h-auto sm:px-8 sm:py-4 bg-primary hover:bg-secondary text-white font-medium rounded-xl transition-all duration-200 flex items-center justify-center gap-0 sm:gap-2" title="View Projects">
+          <span class="hidden sm:inline">View Projects</span>
+          <svg class="w-5 h-5 sm:group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+        <a href="https://github.com/ChrisEarlAmar" target="_blank" rel="noopener noreferrer" class="w-12 h-12 sm:w-auto sm:h-auto sm:px-8 sm:py-4 bg-card hover:bg-[#243a31] text-white font-medium rounded-xl transition-all duration-200 border border-primary/30 flex items-center justify-center gap-0 sm:gap-2" title="GitHub">
+          <span class="hidden sm:inline">GitHub</span>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/chris-earl-amar-945a7a226/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 sm:w-auto sm:h-auto sm:px-8 sm:py-4 bg-card hover:bg-[#243a31] text-white font-medium rounded-xl transition-all duration-200 border border-primary/30 flex items-center justify-center gap-0 sm:gap-2" title="LinkedIn">
+          <span class="hidden sm:inline">LinkedIn</span>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-2 left-0 right-0 flex justify-center">
+        <a href="#about" class="flex flex-col items-center text-accent hover:text-secondary transition-colors">
+          <span class="text-sm mb-2">Scroll to explore</span>
+          <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="space-y-6">
+          <h3 class="text-2xl font-semibold text-white">Fullstack Developer with Backend Focus</h3>
+          
+          <p class="text-textMuted leading-relaxed">
+            I am a <span class="text-secondary font-medium">Fullstack Web Developer</span> with over 
+            <span class="text-secondary font-medium">2 years of professional experience</span> building 
+            scalable back-office systems and modern web applications. My expertise lies in developing 
+            enterprise-grade solutions that solve real business problems.
+          </p>
+
+          <p class="text-textMuted leading-relaxed">
+            Currently working at <span class="text-accent font-medium">DecoArts Marketing / CitiHardware</span>, 
+            I specialize in backend-heavy development, creating robust systems that handle complex business 
+            logic, integrate with enterprise ERP solutions, and serve hundreds of users across multiple locations.
+          </p>
+
+          <p class="text-textMuted leading-relaxed">
+            I'm passionate about writing clean, maintainable code and architecting solutions that scale. 
+            My approach combines technical excellence with a deep understanding of business requirements, 
+            ensuring that every project I deliver creates measurable impact.
+          </p>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-6 pt-6">
+            <div class="text-center p-4 bg-card/50 rounded-xl border border-primary/20">
+              <div class="text-3xl font-bold text-secondary mb-1">2+</div>
+              <div class="text-sm text-textMuted">Years Experience</div>
+            </div>
+            <div class="text-center p-4 bg-card/50 rounded-xl border border-primary/20">
+              <div class="text-3xl font-bold text-accent mb-1">120+</div>
+              <div class="text-sm text-textMuted">Stores Served</div>
+            </div>
+            <div class="text-center p-4 bg-card/50 rounded-xl border border-primary/20">
+              <div class="text-3xl font-bold text-accent mb-1">∞</div>
+              <div class="text-sm text-textMuted">Problems Solved</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Content - Skills Preview -->
+        <div class="space-y-6">
+          <div class="p-6 bg-card rounded-2xl border border-primary/20">
+            <h4 class="text-lg font-semibold text-white mb-6">What I Do Best</h4>
+            
+            <div class="space-y-4">
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="font-medium text-white">Enterprise System Development</h5>
+                  <p class="text-sm text-textMuted">Building scalable back-office tools integrated with Oracle ERP</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="font-medium text-white">Real-time Applications</h5>
+                  <p class="text-sm text-textMuted">WebSocket-powered tools for live data synchronization</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="font-medium text-white">REST API Design</h5>
+                  <p class="text-sm text-textMuted">Clean, documented APIs following industry best practices</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="font-medium text-white">Access Control & Security</h5>
+                  <p class="text-sm text-textMuted">Role-based systems with enterprise-grade security</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-24 bg-[#1a2520]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Work Experience</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+      </div>
+
+      <div class="space-y-8">
+        <div class="p-8 bg-card rounded-2xl border border-primary/20 hover:border-secondary/40 transition-all duration-300 group">
+          <!-- Header Row -->
+          <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <img src="../public/citihardware_logo.jpg" alt="CitiHardware" class="w-12 h-12 object-contain rounded-lg">
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">DecoArts Marketing / CitiHardware</h3>
+                <p class="text-secondary font-medium text-lg">Fullstack Web Developer</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
+              <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <span class="text-accent text-sm font-medium">Feb 2024 – Present</span>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="text-textMuted mb-6 leading-relaxed max-w-4xl">
+            Developed and maintained enterprise web applications for retail operations across 120+ stores.
+          </p>
+
+          <!-- Two Column Layout for Highlights and Tech -->
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Highlights -->
+            <div>
+              <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Key Achievements</h4>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span class="text-textMuted text-sm">Built accounting report generators integrated with Oracle ERP systems</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span class="text-textMuted text-sm">Developed REST APIs using Laravel and React for internal tools</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span class="text-textMuted text-sm">Maintained and enhanced survey tool used by 120+ stores nationwide</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span class="text-textMuted text-sm">Implemented PDF export functionality, real-time updates via WebSockets, access control, and advanced filtering</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technologies -->
+            <div>
+              <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Technologies Used</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 bg-[#243a31] text-textMuted text-sm rounded-lg border border-primary/20 hover:border-secondary/40 transition-colors">Laravel</span>
+                <span class="px-3 py-1.5 bg-[#243a31] text-textMuted text-sm rounded-lg border border-primary/20 hover:border-secondary/40 transition-colors">React</span>
+                <span class="px-3 py-1.5 bg-[#243a31] text-textMuted text-sm rounded-lg border border-primary/20 hover:border-secondary/40 transition-colors">Oracle</span>
+                <span class="px-3 py-1.5 bg-[#243a31] text-textMuted text-sm rounded-lg border border-primary/20 hover:border-secondary/40 transition-colors">MySQL</span>
+                <span class="px-3 py-1.5 bg-[#243a31] text-textMuted text-sm rounded-lg border border-primary/20 hover:border-secondary/40 transition-colors">WebSockets</span>
+                <span class="px-3 py-1.5 bg-[#243a31] text-textMuted text-sm rounded-lg border border-primary/20 hover:border-secondary/40 transition-colors">REST APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-24 bg-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Featured Projects</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
+        <p class="text-textMuted max-w-2xl mx-auto">
+          Below are some of the featured projects that highlight my expertise and dedication to building scalable, production-ready systems.
+        </p>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- MVP Survey Tool -->
+        <div class="group bg-card rounded-2xl border border-primary/20 hover:border-secondary/40 transition-all duration-300 overflow-hidden">
+          <div class="aspect-video bg-darker border-b border-primary/10 overflow-hidden">
+            <video src="../public/sample-video.mp4" class="w-full h-full object-cover" muted loop playsInline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0;"></video>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">MVP Survey Tool</h3>
+            <p class="text-textMuted text-sm mb-4 leading-relaxed">A real-time survey management system deployed across 120+ retail locations. Features include live data synchronization, role-based access control, and external system integration.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded-md">Real-time updates</span>
+              <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded-md">Multi-store deployment</span>
+              <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded-md">External system integration</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">Laravel</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">React</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">WebSockets</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">Material UI</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">MySQL</span>
+            </div>
+            <a href="https://github.com/ChrisEarlAmar/cea-mvp-survey" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-accent hover:text-secondary transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              <span>View on GitHub</span>
+              <svg class="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Batch Manager -->
+        <div class="group bg-card rounded-2xl border border-primary/20 hover:border-secondary/40 transition-all duration-300 overflow-hidden">
+          <div class="aspect-video bg-darker border-b border-primary/10 overflow-hidden">
+            <video src="../public/sample-video.mp4" class="w-full h-full object-cover" muted loop playsInline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0;"></video>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">Batch Manager</h3>
+            <p class="text-textMuted text-sm mb-4 leading-relaxed">A Python-based desktop utility for managing batch scripts and streamlining development workflows. Improves developer productivity by automating repetitive tasks.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded-md">Script management</span>
+              <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded-md">Dev workflow automation</span>
+              <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded-md">Cross-platform</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">Python</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">Desktop Application</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">Automation</span>
+            </div>
+            <a href="https://github.com/ChrisEarlAmar/cea-batch-manager" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-accent hover:text-secondary transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              <span>View on GitHub</span>
+              <svg class="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quizey -->
+        <div class="group bg-card rounded-2xl border border-primary/20 hover:border-secondary/40 transition-all duration-300 overflow-hidden">
+          <div class="aspect-video bg-darker border-b border-primary/10 overflow-hidden">
+            <video src="../public/sample-video.mp4" class="w-full h-full object-cover" muted loop playsInline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0;"></video>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">Quizey</h3>
+            <p class="text-textMuted text-sm mb-4 leading-relaxed">A web application that allows users to generate quizzes and share them with others. No authentication required - data is stored locally using IndexedDB. Quizzes can be shared using a custom .qzy file format.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded-md">Offline-first architecture</span>
+              <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded-md">Custom file format (.qzy)</span>
+              <span class="px-2 py-1 bg-accent/10 text-accent text-xs rounded-md">No cloud storage needed</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">React</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">Vite</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">Tailwind CSS</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">Shadcn/ui</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">Dexie.js</span>
+              <span class="px-2 py-1 bg-[#243a31] text-textMuted text-xs rounded-md border border-primary/20">IndexedDB</span>
+            </div>
+            <a href="https://github.com/ChrisEarlAmar/cea-quizey" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-accent hover:text-secondary transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              <span>View on GitHub</span>
+              <svg class="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- More Projects CTA -->
+      <div class="text-center mt-12">
+        <p class="text-textMuted mb-4">Interested in seeing more of my work?</p>
+        <a href="https://github.com/ChrisEarlAmar" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-[#243a31] hover:bg-[#2a4036] text-white font-medium rounded-xl transition-all duration-200 border border-primary/30">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+          View More on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-24 bg-[#1a2520]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Technical Skills</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
+        <p class="text-textMuted max-w-2xl mx-auto">
+          My tech stack is focused on building modern, scalable web applications with an emphasis on backend systems and real-time functionality.
+        </p>
+      </div>
+
+      <!-- Skills Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Frontend -->
+        <div class="p-6 bg-card rounded-2xl border border-primary/20">
+          <h3 class="text-lg font-semibold mb-6 text-secondary">Frontend</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/react-icon.svg" alt="React" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">React</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/typescript-icon.svg" alt="TypeScript" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">TypeScript</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/tailwind-icon.svg" alt="Tailwind CSS" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">Tailwind CSS</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/materialui-icon.svg" alt="Material UI" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">Material UI</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/shadcn-icon.svg" alt="Shadcn/ui" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">Shadcn/ui</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-secondary bg-secondary/10 border-secondary/20">Intermediate</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/javascript-icon.svg" alt="JavaScript" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">JavaScript</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="p-6 bg-card rounded-2xl border border-primary/20">
+          <h3 class="text-lg font-semibold mb-6 text-accent">Backend</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/laravel-icon.svg" alt="Laravel" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">Laravel</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/php-icon.svg" alt="PHP" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">PHP</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/api-icon.svg" alt="REST APIs" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">REST APIs</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/websocket-icon.svg" alt="WebSockets" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">WebSockets</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-secondary bg-secondary/10 border-secondary/20">Intermediate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Database -->
+        <div class="p-6 bg-card rounded-2xl border border-primary/20">
+          <h3 class="text-lg font-semibold mb-6 text-primary">Database</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/mysql-icon.svg" alt="MySQL" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">MySQL</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/oracle-icon.svg" alt="Oracle" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">Oracle</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-secondary bg-secondary/10 border-secondary/20">Intermediate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="p-6 bg-card rounded-2xl border border-primary/20">
+          <h3 class="text-lg font-semibold mb-6 text-accent">Tools & Platforms</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/gitlab-icon.svg" alt="GitLab" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">GitLab</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-dark rounded-xl border border-primary/10 hover:border-primary/30 transition-colors">
+              <div class="flex items-center gap-3">
+                <img src="../public/vite-icon.svg" alt="Vite" class="w-6 h-6 object-contain">
+                <span class="font-medium text-white">Vite</span>
+              </div>
+              <span class="text-xs px-2 py-1 rounded-full border text-accent bg-accent/10 border-accent/20">Advanced</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Info -->
+      <div class="mt-16 grid md:grid-cols-3 gap-6">
+        <div class="p-6 bg-dark rounded-2xl border border-primary/20 text-center hover:border-secondary/40 transition-all duration-300">
+          <div class="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-xl flex items-center justify-center">
+            <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h4 class="font-semibold text-white mb-2">Performance Focused</h4>
+          <p class="text-sm text-textMuted">Optimizing applications for speed and efficiency</p>
+        </div>
+        <div class="p-6 bg-dark rounded-2xl border border-primary/20 text-center hover:border-secondary/40 transition-all duration-300">
+          <div class="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-xl flex items-center justify-center">
+            <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h4 class="font-semibold text-white mb-2">Security Conscious</h4>
+          <p class="text-sm text-textMuted">Implementing best practices for data protection</p>
+        </div>
+        <div class="p-6 bg-dark rounded-2xl border border-primary/20 text-center hover:border-secondary/40 transition-all duration-300">
+          <div class="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-xl flex items-center justify-center">
+            <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h4 class="font-semibold text-white mb-2">Team Collaboration</h4>
+          <p class="text-sm text-textMuted">Experienced in agile development environments</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
+        <p class="text-textMuted max-w-2xl mx-auto">
+          Have a project in mind or want to collaborate? Feel free to reach out through any of these channels.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Contact Info Cards -->
+        <div class="space-y-6">
+          <h3 class="text-2xl font-bold text-white mb-8">Let's Connect</h3>
+
+          <!-- Email -->
+          <a href="mailto:chrisearl.amar@example.com" class="flex items-center gap-4 p-4 bg-card rounded-xl border border-primary/20 hover:border-secondary/40 transition-all duration-300 group">
+            <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm text-textMuted">Email</p>
+              <p class="font-medium text-white group-hover:text-accent transition-colors">chrisearl.amar@example.com</p>
+            </div>
+          </a>
+
+          <!-- Location -->
+          <div class="flex items-center gap-4 p-4 bg-card rounded-xl border border-primary/20">
+            <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm text-textMuted">Location</p>
+              <p class="font-medium text-white">Philippines</p>
+            </div>
+          </div>
+
+          <!-- GitHub -->
+          <a href="https://github.com/ChrisEarlAmar" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 bg-card rounded-xl border border-primary/20 hover:border-secondary/40 transition-all duration-300 group">
+            <div class="w-12 h-12 bg-gradient-to-br from-card to-[#1a2a24] rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm text-textMuted">GitHub</p>
+              <p class="font-medium text-white group-hover:text-accent transition-colors">github.com/ChrisEarlAmar</p>
+            </div>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/chris-earl-amar-945a7a226/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 bg-card rounded-xl border border-primary/20 hover:border-secondary/40 transition-all duration-300 group">
+            <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm text-textMuted">LinkedIn</p>
+              <p class="font-medium text-white group-hover:text-accent transition-colors">linkedin.com/in/chris-earl-amar</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- CTA Card -->
+        <div class="p-8 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl border border-primary/20">
+          <h4 class="text-2xl font-bold text-white mb-4">Open for Opportunities</h4>
+          <p class="text-textMuted mb-6">
+            I'm currently open to new opportunities and collaborations. Whether you have a question, a project proposal, or just want to say hi, I'll do my best to get back to you!
+          </p>
+
+          <div class="space-y-4">
+            <a href="mailto:chrisearl.amar@example.com" class="flex items-center justify-center gap-2 w-full px-6 py-4 bg-primary hover:bg-secondary text-white font-medium rounded-xl transition-all duration-200">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+              </svg>
+              Send Me an Email
+            </a>
+
+            <a href="https://www.linkedin.com/in/chris-earl-amar-945a7a226/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#243a31] hover:bg-[#2a4036] text-white font-medium rounded-xl transition-all duration-200 border border-primary/30">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              Connect on LinkedIn
+            </a>
+          </div>
+
+          <p class="text-sm text-textMuted mt-6 text-center">Usually responds within 24-48 hours</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-dark border-t border-primary/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Logo & Copyright -->
+        <div class="flex items-center gap-3">
+          <span class="text-2xl font-bold gradient-text">CEA</span>
+          <span class="text-textMuted">&copy; 2024 Chris Earl Amar</span>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="flex flex-wrap items-center justify-center gap-6">
+          <a href="#home" class="text-textMuted hover:text-accent transition-colors text-sm">Home</a>
+          <a href="#about" class="text-textMuted hover:text-accent transition-colors text-sm">About</a>
+          <a href="#experience" class="text-textMuted hover:text-accent transition-colors text-sm">Experience</a>
+          <a href="#projects" class="text-textMuted hover:text-accent transition-colors text-sm">Projects</a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/ChrisEarlAmar" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-card rounded-lg flex items-center justify-center text-textMuted hover:text-white hover:bg-[#243a31] transition-all duration-200 border border-primary/20" aria-label="GitHub">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/chris-earl-amar-945a7a226/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-card rounded-lg flex items-center justify-center text-textMuted hover:text-white hover:bg-[#243a31] transition-all duration-200 border border-primary/20" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="mailto:chrisearl.amar@example.com" class="w-10 h-10 bg-card rounded-lg flex items-center justify-center text-textMuted hover:text-white hover:bg-[#243a31] transition-all duration-200 border border-primary/20" aria-label="Email">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom text -->
+      <div class="mt-8 pt-8 border-t border-primary/10 text-center">
+        <p class="text-textMuted/60 text-sm">Built with HTML, Tailwind CSS & Vanilla JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Interactivity -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 20) {
+        navbar.classList.add('bg-dark/90', 'backdrop-blur-md', 'border-b', 'border-primary/20', 'py-3');
+        navbar.classList.remove('py-5');
+      } else {
+        navbar.classList.remove('bg-dark/90', 'backdrop-blur-md', 'border-b', 'border-primary/20', 'py-3');
+        navbar.classList.add('py-5');
+      }
+      
+      lastScroll = currentScroll;
+    });
+
+    // Active section highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('text-accent', 'bg-primary/10');
+        link.classList.add('text-textMuted');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.remove('text-textMuted');
+          link.classList.add('text-accent', 'bg-primary/10');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
