@@ -13,7 +13,7 @@ export const experience = [
   {
     id: 1,
     company: "DecoArts Marketing / CitiHardware",
-    role: "Fullstack Web Developer",
+    role: "Fullstack Systems Development Specialist",
     period: "Feb 2024 – Present",
     description: "Developed and maintained enterprise web applications for retail operations across 120+ stores.",
     highlights: [
@@ -22,7 +22,7 @@ export const experience = [
       "Maintained and enhanced survey tool used by 120+ stores nationwide",
       "Implemented PDF export functionality, real-time updates via WebSockets, access control, and advanced filtering",
     ],
-    technologies: ["Laravel", "React", "Oracle", "MySQL", "WebSockets", "REST APIs"],
+    technologies: ["Laravel", "React", "Oracle SQL", "MySQL", "WebSockets", "REST APIs"],
   },
 ];
 
@@ -45,7 +45,7 @@ export const projects = [
     technologies: ["Python", "Desktop Application", "Automation"],
     highlights: ["Script management", "Dev workflow automation", "Cross-platform"],
     github: "https://github.com/ChrisEarlAmar/cea-batch-manager",
-    video: "/sample-video-2.mp4",
+    video: "/sample-video-5.mp4",
     demo: null,
     image: null,
   },
