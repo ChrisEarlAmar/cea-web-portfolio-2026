@@ -39,8 +39,8 @@ export default function Hero() {
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-[#1F6F5F] to-[#2FA084] p-1">
               <div className="w-full h-full rounded-full bg-[#141c18] flex items-center justify-center overflow-hidden">
                 <img 
-                  src="/logo.png" 
-                  alt="Logo" 
+                  src="/cea-profile.jpg" 
+                  alt="Profile" 
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
