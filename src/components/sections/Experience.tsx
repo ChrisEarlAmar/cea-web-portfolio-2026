@@ -1,5 +1,6 @@
 import { CheckCircle, Calendar } from 'lucide-react';
 import { experience } from '../../data/portfolio-data';
+import citihardwareLogo from '../../assets/citihardware_logo.jpg';
 
 export default function Experience() {
   return (
@@ -25,7 +26,7 @@ export default function Experience() {
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 bg-[#1F6F5F]/10 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
                     <img 
-                      src="/citihardware_logo.jpg" 
+                      src={citihardwareLogo} 
                       alt="CitiHardware" 
                       className="w-12 h-12 object-contain rounded-lg"
                     />

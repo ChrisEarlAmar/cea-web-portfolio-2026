@@ -1,12 +1,31 @@
+import mvpSurveyVideo from '../assets/mvp-survey.mp4'
+import batchManagerVideo from '../assets/batch-manager.mp4'
+import quizeyVideo from '../assets/quizey.mp4'
+import reactIcon from '../assets/react-icon.svg'
+import typescriptIcon from '../assets/typescript-icon.svg'
+import tailwindIcon from '../assets/tailwind-icon.svg'
+import materialuiIcon from '../assets/materialui-icon.svg'
+import shadcnIcon from '../assets/shadcn-icon.svg'
+import javascriptIcon from '../assets/javascript-icon.svg'
+import laravelIcon from '../assets/laravel-icon.svg'
+import phpIcon from '../assets/php-icon.svg'
+import apiIcon from '../assets/api-icon.svg'
+import websocketIcon from '../assets/websocket-icon.svg'
+import mysqlIcon from '../assets/mysql-icon.svg'
+import oracleIcon from '../assets/oracle-icon.svg'
+import gitlabIcon from '../assets/gitlab-icon.svg'
+import viteIcon from '../assets/vite-icon.svg'
+import resume from '../assets/Chris Earl Amar - Resume.pdf'
+
 export const personalInfo = {
   name: "Chris Earl Amar",
   title: "Fullstack Web Developer",
   tagline: "Building scalable back-office systems and modern web applications",
   location: "Philippines",
-  email: "chrisearl.amar@example.com",
+  email: "chrisearlamar@gmail.com",
   github: "https://github.com/ChrisEarlAmar",
   linkedin: "https://www.linkedin.com/in/chris-earl-amar-945a7a226/",
-  resume: "/assets/pdf/CEA-CV.pdf",
+  resume: resume,
 };
 
 export const experience = [
@@ -34,7 +53,7 @@ export const projects = [
     technologies: ["Laravel", "React", "WebSockets", "Material UI", "MySQL"],
     highlights: ["Real-time updates", "Multi-store deployment", "External system integration"],
     github: "https://github.com/ChrisEarlAmar/cea-mvp-survey",
-    video: "/mvp-survey.mp4",
+    video: mvpSurveyVideo,
     demo: null,
     image: null,
   },
@@ -45,7 +64,7 @@ export const projects = [
     technologies: ["Python", "Desktop Application", "Automation"],
     highlights: ["Script management", "Dev workflow automation", "Cross-platform"],
     github: "https://github.com/ChrisEarlAmar/cea-batch-manager",
-    video: "/batch-manager.mp4",
+    video: batchManagerVideo,
     demo: null,
     image: null,
   },
@@ -56,7 +75,7 @@ export const projects = [
     technologies: ["React", "Vite", "Tailwind CSS", "Shadcn/ui", "Dexie.js", "IndexedDB"],
     highlights: ["Offline-first architecture", "Custom file format (.qzy)", "No cloud storage needed"],
     github: "https://github.com/ChrisEarlAmar/cea-quizey",
-    video: "/quizey.mp4",
+    video: quizeyVideo,
     demo: null,
     image: null,
   },
@@ -64,26 +83,26 @@ export const projects = [
 
 export const skills = {
   frontend: [
-    { name: "React", level: "Advanced", icon: "/react-icon.svg" },
-    { name: "TypeScript", level: "Advanced", icon: "/typescript-icon.svg" },
-    { name: "Tailwind CSS", level: "Advanced", icon: "/tailwind-icon.svg" },
-    { name: "Material UI", level: "Advanced", icon: "/materialui-icon.svg" },
-    { name: "Shadcn/ui", level: "Intermediate", icon: "/shadcn-icon.svg" },
-    { name: "JavaScript", level: "Advanced", icon: "/javascript-icon.svg" },
+    { name: "React", level: "Advanced", icon: reactIcon },
+    { name: "TypeScript", level: "Advanced", icon: typescriptIcon },
+    { name: "Tailwind CSS", level: "Advanced", icon: tailwindIcon },
+    { name: "Material UI", level: "Advanced", icon: materialuiIcon },
+    { name: "Shadcn/ui", level: "Intermediate", icon: shadcnIcon },
+    { name: "JavaScript", level: "Advanced", icon: javascriptIcon },
   ],
   backend: [
-    { name: "Laravel", level: "Advanced", icon: "/laravel-icon.svg" },
-    { name: "PHP", level: "Advanced", icon: "/php-icon.svg" },
-    { name: "REST APIs", level: "Advanced", icon: "/api-icon.svg" },
-    { name: "WebSockets", level: "Intermediate", icon: "/websocket-icon.svg" },
+    { name: "Laravel", level: "Advanced", icon: laravelIcon },
+    { name: "PHP", level: "Advanced", icon: phpIcon },
+    { name: "REST APIs", level: "Advanced", icon: apiIcon },
+    { name: "WebSockets", level: "Intermediate", icon: websocketIcon },
   ],
   database: [
-    { name: "MySQL", level: "Advanced", icon: "/mysql-icon.svg" },
-    { name: "Oracle", level: "Intermediate", icon: "/oracle-icon.svg" },
+    { name: "MySQL", level: "Advanced", icon: mysqlIcon },
+    { name: "Oracle", level: "Intermediate", icon: oracleIcon },
   ],
   tools: [
-    { name: "GitLab", level: "Advanced", icon: "/gitlab-icon.svg" },
-    { name: "Vite", level: "Advanced", icon: "/vite-icon.svg" },
+    { name: "GitLab", level: "Advanced", icon: gitlabIcon },
+    { name: "Vite", level: "Advanced", icon: viteIcon },
   ],
 };
 

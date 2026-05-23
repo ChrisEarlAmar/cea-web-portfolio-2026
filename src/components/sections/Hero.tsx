@@ -1,5 +1,6 @@
-import { ArrowRight, ChevronDown, GitBranch, Globe } from 'lucide-react';
+import { ArrowRight, ChevronDown, FileDown, GitBranch, Globe } from 'lucide-react';
 import { personalInfo } from '../../data/portfolio-data';
+import ceaProfile from '../../assets/cea-profile.jpg';
 
 export default function Hero() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -39,7 +40,7 @@ export default function Hero() {
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-[#1F6F5F] to-[#2FA084] p-1">
               <div className="w-full h-full rounded-full bg-[#141c18] flex items-center justify-center overflow-hidden">
                 <img 
-                  src="/cea-profile.jpg" 
+                  src={ceaProfile} 
                   alt="Profile" 
                   className="w-full h-full object-cover rounded-full"
                 />
@@ -96,6 +97,16 @@ export default function Hero() {
           >
             <span className="hidden sm:inline">LinkedIn</span>
             <Globe className="w-5 h-5" />
+          </a>
+          <a
+            href={personalInfo.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 sm:w-auto sm:h-auto sm:px-8 sm:py-4 bg-[#1e2f28] hover:bg-[#243a31] text-[#EEEEEE] font-medium rounded-xl transition-all duration-200 border border-[#1F6F5F]/30 flex items-center justify-center gap-0 sm:gap-2"
+            title="Resume"
+          >
+            <span className="hidden sm:inline">Resume</span>
+            <FileDown className="w-5 h-5" />
           </a>
         </div>
 
