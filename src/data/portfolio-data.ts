@@ -76,7 +76,7 @@ export const projects = [
     highlights: ["Offline-first architecture", "Custom file format (.qzy)", "No cloud storage needed"],
     github: "https://github.com/ChrisEarlAmar/cea-quizey",
     video: quizeyVideo,
-    demo: null,
+    demo: 'https://chrisearlamar.github.io/Quizey',
     image: null,
   },
 ];

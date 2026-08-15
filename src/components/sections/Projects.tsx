@@ -103,19 +103,33 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* GitHub Link */}
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-[#6FCF97] hover:text-[#2FA084] transition-colors group/link"
-                  >
-                    <GitBranch className="w-4 h-4" />
-                    <span>View on GitHub</span>
-                    <ExternalLink className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" />
-                  </a>
-                )}
+                {/* Links */}
+                <div className="flex flex-wrap gap-4">
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-[#6FCF97] hover:text-[#2FA084] transition-colors group/link"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      <span>Live Demo</span>
+                      <ExternalLink className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" />
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-[#6FCF97] hover:text-[#2FA084] transition-colors group/link"
+                    >
+                      <GitBranch className="w-4 h-4" />
+                      <span>View on GitHub</span>
+                      <ExternalLink className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
