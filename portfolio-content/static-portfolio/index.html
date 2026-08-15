@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chris Earl Amar</title>
+
+  <meta name="description" content="Chris Earl Amar is a Fullstack Web Developer in the Philippines specializing in scalable back-office systems, Laravel, React, and enterprise web applications.">
+  <meta name="keywords" content="Chris Earl Amar, Fullstack Developer, Laravel, React, Philippines Developer, Web Developer Portfolio">
+  <meta name="author" content="Chris Earl Amar">
+  <meta name="theme-color" content="#6750A4">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chris Earl Amar | Fullstack Web Developer">
+  <meta property="og:description" content="Building scalable back-office systems and modern web applications.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/profile/cea-profile.jpg">
+
+  <link rel="icon" type="image/png" href="assets/profile/logo.png">
+
+  <!-- Google Fonts: Roboto (Material Design's canonical typeface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Roboto', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            md: {
+              primary: '#6750A4',
+              'on-primary': '#FFFFFF',
+              'secondary-container': '#E8DEF8',
+              'on-secondary-container': '#1D192B',
+              tertiary: '#7D5260',
+              surface: '#FFFBFE',
+              'on-surface': '#1C1B1F',
+              'surface-container': '#F3EDF7',
+              'surface-container-low': '#E7E0EC',
+              outline: '#79747E',
+              'on-surface-variant': '#49454F',
+            },
+          },
+          borderRadius: {
+            'md-xs': '8px',
+            'md-sm': '12px',
+            'md-md': '16px',
+            'md-lg': '24px',
+            'md-xl': '28px',
+            'md-2xl': '32px',
+            'md-3xl': '48px',
+          },
+          transitionTimingFunction: {
+            'md-standard': 'cubic-bezier(0.2, 0, 0, 1)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #FFFBFE;
+    }
+
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 300ms cubic-bezier(0.2, 0, 0, 1);
+    }
+    #mobile-menu.open-menu {
+      max-height: 480px;
+    }
+
+    /* Decorative blur shapes must never intercept clicks/taps */
+    .bg-blob {
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans bg-md-surface text-md-on-surface antialiased">
+
+  <!-- ============ NAVBAR ============ -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 py-5 transition-all duration-300 ease-md-standard">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
+      <div class="flex items-center justify-between">
+        <a href="#home" data-section="home" class="nav-link text-xl font-bold bg-gradient-to-r from-md-primary to-md-tertiary bg-clip-text text-transparent rounded-md-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-md-primary focus-visible:ring-offset-2 focus-visible:ring-offset-md-surface">
+          CEA
+        </a>
+
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#home" data-section="home" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-md-on-surface-variant hover:text-md-on-surface hover:bg-md-primary/5 transition-colors duration-200">Home</a>
+          <a href="#about" data-section="about" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-md-on-surface-variant hover:text-md-on-surface hover:bg-md-primary/5 transition-colors duration-200">About</a>
+          <a href="#experience" data-section="experience" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-md-on-surface-variant hover:text-md-on-surface hover:bg-md-primary/5 transition-colors duration-200">Experience</a>
+          <a href="#projects" data-section="projects" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-md-on-surface-variant hover:text-md-on-surface hover:bg-md-primary/5 transition-colors duration-200">Projects</a>
+          <a href="#skills" data-section="skills" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-md-on-surface-variant hover:text-md-on-surface hover:bg-md-primary/5 transition-colors duration-200">Skills</a>
+          <a href="#contact" data-section="contact" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-md-on-surface-variant hover:text-md-on-surface hover:bg-md-primary/5 transition-colors duration-200">Contact</a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full text-md-on-surface-variant hover:bg-md-primary/5 active:scale-95 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-md-primary focus-visible:ring-offset-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+          <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="md:hidden">
+        <div class="mt-4 p-2 rounded-md-lg bg-md-surface-container/95 backdrop-blur-md border border-md-outline/10 shadow-md">
+          <a href="#home" data-section="home" class="mobile-nav-link block px-4 py-3 rounded-md-sm text-sm font-medium text-md-on-surface-variant hover:bg-md-primary/5 hover:text-md-on-surface transition-colors">Home</a>
+          <a href="#about" data-section="about" class="mobile-nav-link block px-4 py-3 rounded-md-sm text-sm font-medium text-md-on-surface-variant hover:bg-md-primary/5 hover:text-md-on-surface transition-colors">About</a>
+          <a href="#experience" data-section="experience" class="mobile-nav-link block px-4 py-3 rounded-md-sm text-sm font-medium text-md-on-surface-variant hover:bg-md-primary/5 hover:text-md-on-surface transition-colors">Experience</a>
+          <a href="#projects" data-section="projects" class="mobile-nav-link block px-4 py-3 rounded-md-sm text-sm font-medium text-md-on-surface-variant hover:bg-md-primary/5 hover:text-md-on-surface transition-colors">Projects</a>
+          <a href="#skills" data-section="skills" class="mobile-nav-link block px-4 py-3 rounded-md-sm text-sm font-medium text-md-on-surface-variant hover:bg-md-primary/5 hover:text-md-on-surface transition-colors">Skills</a>
+          <a href="#contact" data-section="contact" class="mobile-nav-link block px-4 py-3 rounded-md-sm text-sm font-medium text-md-on-surface-variant hover:bg-md-primary/5 hover:text-md-on-surface transition-colors">Contact</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="home" class="px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 pb-6">
+      <div class="relative overflow-hidden rounded-[28px] md:rounded-md-3xl bg-md-surface-container max-w-7xl mx-auto px-6 py-20 md:py-28 text-center shadow-sm">
+        <!-- Decorative organic blur shapes -->
+        <div aria-hidden="true" class="bg-blob absolute -top-16 -left-16 w-72 h-72 md:w-96 md:h-96 bg-md-primary/20 rounded-full blur-3xl"></div>
+        <div aria-hidden="true" class="bg-blob absolute -bottom-20 -right-10 w-72 h-72 md:w-96 md:h-96 bg-md-tertiary/20 rounded-full blur-3xl"></div>
+        <div aria-hidden="true" class="bg-blob absolute top-1/3 right-1/4 w-56 h-56 md:w-72 md:h-72 bg-md-secondary-container/60 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10">
+          <div class="mb-8 flex justify-center">
+            <div class="relative">
+              <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-md-primary to-md-tertiary p-1 shadow-md">
+                <div class="w-full h-full rounded-full bg-md-surface overflow-hidden">
+                  <img src="assets/profile/cea-profile.jpg" alt="Chris Earl Amar" class="w-full h-full object-cover rounded-full">
+                </div>
+              </div>
+              <span aria-hidden="true" class="absolute -bottom-1 -right-1 w-7 h-7 bg-md-tertiary rounded-full border-4 border-md-surface-container"></span>
+            </div>
+          </div>
+
+          <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-md-on-surface mb-4 leading-tight">
+            Chris Earl Amar
+          </h1>
+
+          <p class="text-xl md:text-2xl lg:text-3xl font-medium mb-6 bg-gradient-to-r from-md-primary to-md-tertiary bg-clip-text text-transparent">
+            Fullstack Web Developer
+          </p>
+
+          <p class="text-lg md:text-xl text-md-on-surface-variant max-w-2xl mx-auto mb-10">
+            Building scalable back-office systems and modern web applications
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center gap-4 mb-14">
+            <a href="#projects" class="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-md-primary text-md-on-primary text-sm font-medium hover:bg-md-primary/90 hover:shadow-md active:bg-md-primary/80 active:scale-95 transition-all duration-300 ease-md-standard focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-md-primary focus-visible:ring-offset-2 focus-visible:ring-offset-md-surface-container">
+              View Projects
+              <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-300 ease-md-standard group-hover:translate-x-1"></i>
+            </a>
+            <a href="https://github.com/ChrisEarlAmar" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-md-secondary-container text-md-on-secondary-container text-sm font-medium hover:bg-md-secondary-container/90 active:scale-95 transition-all duration-300 ease-md-standard focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-md-primary focus-visible:ring-offset-2 focus-visible:ring-offset-md-surface-container">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/chris-earl-amar-945a7a226/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-md-secondary-container text-md-on-secondary-container text-sm font-medium hover:bg-md-secondary-container/90 active:scale-95 transition-all duration-300 ease-md-standard focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-md-primary focus-visible:ring-offset-2 focus-visible:ring-offset-md-surface-container">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LinkedIn
+            </a>
+            <a href="assets/documents/Chris%20Earl%20Amar%20-%20Resume.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-md-outline text-md-primary text-sm font-medium hover:bg-md-primary/5 active:scale-95 transition-all duration-300 ease-md-standard focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-md-primary focus-visible:ring-offset-2 focus-visible:ring-offset-md-surface-container">
+              <i data-lucide="file-down" class="w-4 h-4"></i>
+              Resume
+            </a>
+          </div>
+
+          <a href="#about" data-section="about" class="nav-link inline-flex flex-col items-center gap-2 text-md-on-surface-variant hover:text-md-primary transition-colors">
+            <span class="text-sm">Scroll to explore</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 animate-bounce"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-md-surface-container">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-md-on-surface mb-4">About Me</h2>
+          <div class="w-20 h-1 bg-gradient-to-r from-md-primary to-md-tertiary mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
+          <!-- Bio -->
+          <div class="space-y-6">
+            <h3 class="text-2xl md:text-3xl font-semibold text-md-on-surface">Fullstack Developer with Backend Focus</h3>
+
+            <p class="text-md-on-surface-variant leading-relaxed">
+              I am a <span class="text-md-primary font-medium">Fullstack Web Developer</span> with over
+              <span class="text-md-primary font-medium">2 years of professional experience</span> building
+              scalable back-office systems and modern web applications. My expertise lies in developing
+              enterprise-grade solutions that solve real business problems.
+            </p>
+
+            <p class="text-md-on-surface-variant leading-relaxed">
+              Currently working at <span class="text-md-tertiary font-medium">DecoArts Marketing / CitiHardware</span>,
+              I specialize in backend-heavy development, creating robust systems that handle complex business
+              logic, integrate with enterprise ERP solutions, and serve hundreds of users across multiple locations.
+            </p>
+
+            <p class="text-md-on-surface-variant leading-relaxed">
+              I'm passionate about writing clean, maintainable code and architecting solutions that scale.
+              My approach combines technical excellence with a deep understanding of business requirements,
+              ensuring that every project I deliver creates measurable impact.
+            </p>
+
+            <div class="grid grid-cols-3 gap-4 pt-4">
+              <div class="text-center p-4 rounded-md-md bg-md-surface-container-low">
+                <div class="text-3xl font-bold text-md-primary mb-1">2+</div>
+                <div class="text-sm text-md-on-surface-variant">Years Experience</div>
+              </div>
+              <div class="text-center p-4 rounded-md-md bg-md-surface-container-low">
+                <div class="text-3xl font-bold text-md-tertiary mb-1">120+</div>
+                <div class="text-sm text-md-on-surface-variant">Stores Served</div>
+              </div>
+              <div class="text-center p-4 rounded-md-md bg-md-surface-container-low">
+                <div class="text-3xl font-bold text-md-tertiary mb-1">&infin;</div>
+                <div class="text-sm text-md-on-surface-variant">Problems Solved</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- What I Do Best -->
+          <div class="p-6 md:p-8 rounded-md-lg bg-md-surface-container-low shadow-sm">
+            <h4 class="text-lg font-semibold text-md-on-surface mb-6">What I Do Best</h4>
+
+            <div class="space-y-5">
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-md-sm bg-md-primary/10 flex items-center justify-center">
+                  <i data-lucide="check-circle" class="w-6 h-6 text-md-primary"></i>
+                </div>
+                <div>
+                  <h5 class="font-medium text-md-on-surface">Enterprise System Development</h5>
+                  <p class="text-sm text-md-on-surface-variant">Building scalable back-office tools integrated with Oracle ERP</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-md-sm bg-md-primary/10 flex items-center justify-center">
+                  <i data-lucide="zap" class="w-6 h-6 text-md-primary"></i>
+                </div>
+                <div>
+                  <h5 class="font-medium text-md-on-surface">Real-time Applications</h5>
+                  <p class="text-sm text-md-on-surface-variant">WebSocket-powered tools for live data synchronization</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-md-sm bg-md-primary/10 flex items-center justify-center">
+                  <i data-lucide="code-2" class="w-6 h-6 text-md-primary"></i>
+                </div>
+                <div>
+                  <h5 class="font-medium text-md-on-surface">REST API Design</h5>
+                  <p class="text-sm text-md-on-surface-variant">Clean, documented APIs following industry best practices</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-md-sm bg-md-primary/10 flex items-center justify-center">
+                  <i data-lucide="shield" class="w-6 h-6 text-md-primary"></i>
+                </div>
+                <div>
+                  <h5 class="font-medium text-md-on-surface">Access Control &amp; Security</h5>
+                  <p class="text-sm text-md-on-surface-variant">Role-based systems with enterprise-grade security</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK EXPERIENCE ============ -->
+    <section id="experience" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-md-surface">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-md-on-surface mb-4">Work Experience</h2>
+          <div class="w-20 h-1 bg-gradient-to-r from-md-primary to-md-tertiary mx-auto rounded-full"></div>
+        </div>
+
+        <div class="p-6 md:p-8 rounded-md-lg bg-md-surface-container shadow-sm hover:shadow-md transition-all duration-300 ease-md-standard">
+          <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-md-sm bg-md-surface flex items-center justify-center flex-shrink-0 overflow-hidden shadow-sm">
+                <img src="assets/company-logos/citihardware_logo.jpg" alt="CitiHardware" class="w-12 h-12 object-contain rounded-md-xs">
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-md-on-surface">DecoArts Marketing / CitiHardware</h3>
+                <p class="text-md-primary font-medium text-lg">Fullstack Systems Development Specialist</p>
+              </div>
+            </div>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-md-primary/10 self-start">
+              <i data-lucide="calendar" class="w-4 h-4 text-md-primary"></i>
+              <span class="text-md-primary text-sm font-medium">Feb 2024 – Present</span>
+            </div>
+          </div>
+
+          <p class="text-md-on-surface-variant mb-6 leading-relaxed max-w-4xl">
+            Developed and maintained enterprise web applications for retail operations across 120+ stores.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="text-sm font-semibold text-md-on-surface uppercase tracking-wide mb-4">Key Achievements</h4>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-md-tertiary flex-shrink-0 mt-0.5"></i>
+                  <span class="text-md-on-surface-variant text-sm">Built accounting report generators integrated with Oracle ERP systems</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-md-tertiary flex-shrink-0 mt-0.5"></i>
+                  <span class="text-md-on-surface-variant text-sm">Developed REST APIs using Laravel and React for internal tools</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-md-tertiary flex-shrink-0 mt-0.5"></i>
+                  <span class="text-md-on-surface-variant text-sm">Maintained and enhanced survey tool used by 120+ stores nationwide</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-md-tertiary flex-shrink-0 mt-0.5"></i>
+                  <span class="text-md-on-surface-variant text-sm">Implemented PDF export functionality, real-time updates via WebSockets, access control, and advanced filtering</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-sm font-semibold text-md-on-surface uppercase tracking-wide mb-4">Technologies Used</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 rounded-full bg-md-secondary-container text-md-on-secondary-container text-sm">Laravel</span>
+                <span class="px-3 py-1.5 rounded-full bg-md-secondary-container text-md-on-secondary-container text-sm">React</span>
+                <span class="px-3 py-1.5 rounded-full bg-md-secondary-container text-md-on-secondary-container text-sm">Oracle SQL</span>
+                <span class="px-3 py-1.5 rounded-full bg-md-secondary-container text-md-on-secondary-container text-sm">MySQL</span>
+                <span class="px-3 py-1.5 rounded-full bg-md-secondary-container text-md-on-secondary-container text-sm">WebSockets</span>
+                <span class="px-3 py-1.5 rounded-full bg-md-secondary-container text-md-on-secondary-container text-sm">REST APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievements (optional emphasis layer, per design-ai-prompt.md) -->
+        <div id="achievements" class="mt-10">
+          <h3 class="text-center text-xs font-semibold uppercase tracking-widest text-md-on-surface-variant mb-6">Achievements</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div class="flex items-start gap-3 p-4 rounded-md-md bg-md-surface-container">
+              <i data-lucide="store" class="w-5 h-5 text-md-primary flex-shrink-0 mt-0.5"></i>
+              <span class="text-sm text-md-on-surface-variant">Enterprise systems delivered and running across 120+ retail store locations</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 rounded-md-md bg-md-surface-container">
+              <i data-lucide="rocket" class="w-5 h-5 text-md-primary flex-shrink-0 mt-0.5"></i>
+              <span class="text-sm text-md-on-surface-variant">3 independent projects shipped &mdash; Quizey has a live public demo</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 rounded-md-md bg-md-surface-container">
+              <i data-lucide="database" class="w-5 h-5 text-md-primary flex-shrink-0 mt-0.5"></i>
+              <span class="text-sm text-md-on-surface-variant">Accounting report generators designed and integrated with Oracle ERP</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 rounded-md-md bg-md-surface-container">
+              <i data-lucide="layers" class="w-5 h-5 text-md-primary flex-shrink-0 mt-0.5"></i>
+              <span class="text-sm text-md-on-surface-variant">Real-time WebSocket features, PDF export, RBAC &amp; advanced filtering shipped to production</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 rounded-md-md bg-md-surface-container">
+              <i data-lucide="file-code" class="w-5 h-5 text-md-primary flex-shrink-0 mt-0.5"></i>
+              <span class="text-sm text-md-on-surface-variant">Invented the custom .qzy file format for offline, no-account quiz sharing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-md-surface-container">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-md-on-surface mb-4">Projects</h2>
+          <div class="w-20 h-1 bg-gradient-to-r from-md-primary to-md-tertiary mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- MVP Survey Tool -->
+          <div class="group rounded-md-lg bg-md-surface shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 ease-md-standard overflow-hidden">
+            <div class="aspect-video bg-md-surface-container-low overflow-hidden">
+              <video class="project-video w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-md-standard" src="assets/project-media/mvp-survey.mp4" muted loop playsinline preload="metadata" aria-label="MVP Survey Tool demo preview"></video>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-md-on-surface mb-2">MVP Survey Tool</h3>
+              <p class="text-md-on-surface-variant text-sm mb-4 leading-relaxed">A real-time survey management system deployed across 120+ retail locations. Features include live data synchronization, role-based access control, and external system integration.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary text-xs">Real-time updates</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary text-xs">Multi-store deployment</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary text-xs">External system integration</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">Laravel</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">React</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">WebSockets</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">Material UI</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">MySQL</span>
+              </div>
+              <a href="https://github.com/ChrisEarlAmar/cea-mvp-survey" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-md-primary hover:text-md-tertiary transition-colors">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Batch Manager -->
+          <div class="group rounded-md-lg bg-md-surface shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 ease-md-standard overflow-hidden">
+            <div class="aspect-video bg-md-surface-container-low overflow-hidden">
+              <video class="project-video w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-md-standard" src="assets/project-media/batch-manager.mp4" muted loop playsinline preload="metadata" aria-label="Batch Manager demo preview"></video>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-md-on-surface mb-2">Batch Manager</h3>
+              <p class="text-md-on-surface-variant text-sm mb-4 leading-relaxed">A Python-based desktop utility for managing batch scripts and streamlining development workflows. Improves developer productivity by automating repetitive tasks.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary text-xs">Script management</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary text-xs">Dev workflow automation</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary text-xs">Cross-platform</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">Python</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">Desktop Application</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">Automation</span>
+              </div>
+              <a href="https://github.com/ChrisEarlAmar/cea-batch-manager" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-md-primary hover:text-md-tertiary transition-colors">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                View on GitHub
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quizey -->
+          <div class="group rounded-md-lg bg-md-surface shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 ease-md-standard overflow-hidden">
+            <div class="aspect-video bg-md-surface-container-low overflow-hidden">
+              <video class="project-video w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-md-standard" src="assets/project-media/quizey.mp4" muted loop playsinline preload="metadata" aria-label="Quizey demo preview"></video>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-md-on-surface mb-2">Quizey</h3>
+              <p class="text-md-on-surface-variant text-sm mb-4 leading-relaxed">A web application that allows users to generate quizzes and share them with others. No authentication required &mdash; data is stored locally using IndexedDB. Quizzes can be shared using a custom .qzy file format.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary text-xs">Offline-first architecture</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary text-xs">Custom file format (.qzy)</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary text-xs">No cloud storage needed</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">React</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">Vite</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">Tailwind CSS</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">Shadcn/ui</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">Dexie.js</span>
+                <span class="px-2.5 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container text-xs">IndexedDB</span>
+              </div>
+              <div class="flex flex-wrap gap-x-4 gap-y-2">
+                <a href="https://chrisearlamar.github.io/Quizey" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-md-primary hover:text-md-tertiary transition-colors">
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                  Live Demo
+                </a>
+                <a href="https://github.com/ChrisEarlAmar/cea-quizey" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-md-primary hover:text-md-tertiary transition-colors">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-md-on-surface-variant mb-4">Interested in seeing more of my work?</p>
+          <a href="https://github.com/ChrisEarlAmar" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-md-secondary-container text-md-on-secondary-container text-sm font-medium hover:bg-md-secondary-container/90 active:scale-95 transition-all duration-300 ease-md-standard">
+            <i data-lucide="external-link" class="w-5 h-5"></i>
+            View More on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-md-surface">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-md-on-surface mb-4">Skills</h2>
+          <div class="w-20 h-1 bg-gradient-to-r from-md-primary to-md-tertiary mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Frontend -->
+          <div class="p-6 rounded-md-lg bg-md-surface-container shadow-sm">
+            <h3 class="text-lg font-semibold text-md-primary mb-5">Frontend</h3>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/react-icon.svg" alt="React" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">React</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/typescript-icon.svg" alt="TypeScript" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">TypeScript</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/tailwind-icon.svg" alt="Tailwind CSS" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">Tailwind CSS</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/materialui-icon.svg" alt="Material UI" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">Material UI</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/shadcn-icon.svg" alt="Shadcn/ui" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">Shadcn/ui</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container border border-md-primary/10">Intermediate</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/javascript-icon.svg" alt="JavaScript" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">JavaScript</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="p-6 rounded-md-lg bg-md-surface-container shadow-sm">
+            <h3 class="text-lg font-semibold text-md-tertiary mb-5">Backend</h3>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/laravel-icon.svg" alt="Laravel" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">Laravel</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/php-icon.svg" alt="PHP" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">PHP</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/api-icon.svg" alt="REST APIs" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">REST APIs</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/websocket-icon.svg" alt="WebSockets" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">WebSockets</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container border border-md-primary/10">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Database -->
+          <div class="p-6 rounded-md-lg bg-md-surface-container shadow-sm">
+            <h3 class="text-lg font-semibold text-md-primary mb-5">Database</h3>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/mysql-icon.svg" alt="MySQL" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">MySQL</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/oracle-icon.svg" alt="Oracle" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">Oracle</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-secondary-container text-md-on-secondary-container border border-md-primary/10">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & Platforms -->
+          <div class="p-6 rounded-md-lg bg-md-surface-container shadow-sm">
+            <h3 class="text-lg font-semibold text-md-tertiary mb-5">Tools &amp; Platforms</h3>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/gitlab-icon.svg" alt="GitLab" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">GitLab</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-md-sm bg-md-surface-container-low">
+                <div class="flex items-center gap-3">
+                  <img src="assets/tech-icons/vite-icon.svg" alt="Vite" class="w-6 h-6 object-contain">
+                  <span class="font-medium text-md-on-surface text-sm">Vite</span>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-full bg-md-tertiary/10 text-md-tertiary border border-md-tertiary/20">Advanced</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional strengths -->
+        <div class="mt-14 grid md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-md-lg bg-md-surface-container text-center shadow-sm hover:shadow-md transition-all duration-300 ease-md-standard">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-md-sm bg-md-primary/10 flex items-center justify-center">
+              <i data-lucide="zap" class="w-6 h-6 text-md-primary"></i>
+            </div>
+            <h4 class="font-semibold text-md-on-surface mb-2">Performance Focused</h4>
+            <p class="text-sm text-md-on-surface-variant">Optimizing applications for speed and efficiency</p>
+          </div>
+          <div class="p-6 rounded-md-lg bg-md-surface-container text-center shadow-sm hover:shadow-md transition-all duration-300 ease-md-standard">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-md-sm bg-md-primary/10 flex items-center justify-center">
+              <i data-lucide="shield" class="w-6 h-6 text-md-primary"></i>
+            </div>
+            <h4 class="font-semibold text-md-on-surface mb-2">Security Conscious</h4>
+            <p class="text-sm text-md-on-surface-variant">Implementing best practices for data protection</p>
+          </div>
+          <div class="p-6 rounded-md-lg bg-md-surface-container text-center shadow-sm hover:shadow-md transition-all duration-300 ease-md-standard">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-md-sm bg-md-primary/10 flex items-center justify-center">
+              <i data-lucide="users" class="w-6 h-6 text-md-primary"></i>
+            </div>
+            <h4 class="font-semibold text-md-on-surface mb-2">Team Collaboration</h4>
+            <p class="text-sm text-md-on-surface-variant">Experienced in agile development environments</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-md-surface-container">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-md-on-surface mb-4">Contact</h2>
+          <div class="w-20 h-1 bg-gradient-to-r from-md-primary to-md-tertiary mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
+          <!-- Contact channel cards -->
+          <div class="space-y-4">
+            <h3 class="text-2xl md:text-3xl font-bold text-md-on-surface mb-4">Let's Connect</h3>
+
+            <a href="mailto:chrisearlamar@gmail.com" class="group flex items-center gap-4 p-4 rounded-md-md bg-md-surface shadow-sm hover:shadow-md transition-all duration-300 ease-md-standard">
+              <div class="w-12 h-12 rounded-md-sm bg-gradient-to-br from-md-primary to-md-tertiary flex items-center justify-center flex-shrink-0">
+                <i data-lucide="mail" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <p class="text-sm text-md-on-surface-variant">Email</p>
+                <p class="font-medium text-md-on-surface group-hover:text-md-primary transition-colors">chrisearlamar@gmail.com</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4 p-4 rounded-md-md bg-md-surface shadow-sm">
+              <div class="w-12 h-12 rounded-md-sm bg-gradient-to-br from-md-tertiary to-md-secondary-container flex items-center justify-center flex-shrink-0">
+                <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <p class="text-sm text-md-on-surface-variant">Location</p>
+                <p class="font-medium text-md-on-surface">Philippines</p>
+              </div>
+            </div>
+
+            <a href="https://github.com/ChrisEarlAmar" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 p-4 rounded-md-md bg-md-surface shadow-sm hover:shadow-md transition-all duration-300 ease-md-standard">
+              <div class="w-12 h-12 rounded-md-sm bg-md-on-surface flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-md-surface" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-md-on-surface-variant">GitHub</p>
+                <p class="font-medium text-md-on-surface group-hover:text-md-primary transition-colors">github.com/ChrisEarlAmar</p>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/chris-earl-amar-945a7a226/" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 p-4 rounded-md-md bg-md-surface shadow-sm hover:shadow-md transition-all duration-300 ease-md-standard">
+              <div class="w-12 h-12 rounded-md-sm bg-gradient-to-br from-md-primary to-md-tertiary flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </div>
+              <div>
+                <p class="text-sm text-md-on-surface-variant">LinkedIn</p>
+                <p class="font-medium text-md-on-surface group-hover:text-md-primary transition-colors">linkedin.com/in/chris-earl-amar</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- CTA card -->
+          <div class="p-8 rounded-md-lg bg-gradient-to-br from-md-primary/10 to-md-tertiary/10 shadow-sm">
+            <h4 class="text-2xl font-bold text-md-on-surface mb-4">Open for Opportunities</h4>
+            <p class="text-md-on-surface-variant mb-6">
+              I'm currently open to new opportunities and collaborations. Whether you have a question, a project proposal, or just want to say hi, I'll do my best to get back to you!
+            </p>
+
+            <div class="space-y-4">
+              <a href="mailto:chrisearlamar@gmail.com" class="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-md-primary text-md-on-primary text-sm font-medium hover:bg-md-primary/90 hover:shadow-md active:bg-md-primary/80 active:scale-95 transition-all duration-300 ease-md-standard">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                Send Me an Email
+              </a>
+              <a href="https://www.linkedin.com/in/chris-earl-amar-945a7a226/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full bg-md-secondary-container text-md-on-secondary-container text-sm font-medium hover:bg-md-secondary-container/90 active:scale-95 transition-all duration-300 ease-md-standard">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                Connect on LinkedIn
+              </a>
+            </div>
+
+            <p class="text-sm text-md-on-surface-variant mt-6 text-center">Usually responds within 24-48 hours</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="py-12 px-4 sm:px-6 lg:px-8 bg-md-surface border-t border-md-outline/15">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl font-bold bg-gradient-to-r from-md-primary to-md-tertiary bg-clip-text text-transparent">CEA</span>
+          <span class="text-md-on-surface-variant text-sm">&copy; <span id="year"></span> Chris Earl Amar</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-5">
+          <a href="#home" data-section="home" class="footer-nav-link text-md-on-surface-variant hover:text-md-primary transition-colors text-sm">Home</a>
+          <a href="#about" data-section="about" class="footer-nav-link text-md-on-surface-variant hover:text-md-primary transition-colors text-sm">About</a>
+          <a href="#experience" data-section="experience" class="footer-nav-link text-md-on-surface-variant hover:text-md-primary transition-colors text-sm">Experience</a>
+          <a href="#projects" data-section="projects" class="footer-nav-link text-md-on-surface-variant hover:text-md-primary transition-colors text-sm">Projects</a>
+          <a href="#skills" data-section="skills" class="footer-nav-link text-md-on-surface-variant hover:text-md-primary transition-colors text-sm">Skills</a>
+          <a href="#contact" data-section="contact" class="footer-nav-link text-md-on-surface-variant hover:text-md-primary transition-colors text-sm">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/ChrisEarlAmar" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-10 h-10 rounded-full bg-md-surface-container flex items-center justify-center text-md-on-surface-variant hover:text-md-on-surface hover:bg-md-surface-container-low active:scale-95 transition-all duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/chris-earl-amar-945a7a226/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-md-surface-container flex items-center justify-center text-md-on-surface-variant hover:text-md-on-surface hover:bg-md-surface-container-low active:scale-95 transition-all duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="mailto:chrisearlamar@gmail.com" aria-label="Email" class="w-10 h-10 rounded-full bg-md-surface-container flex items-center justify-center text-md-on-surface-variant hover:text-md-on-surface hover:bg-md-surface-container-low active:scale-95 transition-all duration-200">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-8 border-t border-md-outline/10 text-center">
+        <p class="text-md-on-surface-variant/70 text-sm">Built with HTML5, Tailwind CSS &amp; Vanilla JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ ICONS + INTERACTIVITY ============ -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open-menu');
+      menuIcon.classList.toggle('hidden', isOpen);
+      closeIcon.classList.toggle('hidden', !isOpen);
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open-menu');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Navbar background/elevation on scroll
+    const header = document.getElementById('navbar');
+    const scrolledClasses = ['bg-md-surface/90', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-md-outline/10', 'py-3'];
+
+    const onScroll = () => {
+      if (window.scrollY > 20) {
+        header.classList.add(...scrolledClasses);
+        header.classList.remove('py-5');
+      } else {
+        header.classList.remove(...scrolledClasses);
+        header.classList.add('py-5');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Active-section highlighting (navbar + mobile menu + footer)
+    const navAnchors = document.querySelectorAll('.nav-link, .mobile-nav-link, .footer-nav-link');
+    const trackedSections = ['home', 'about', 'experience', 'projects', 'skills', 'contact']
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    const setActiveSection = (id) => {
+      navAnchors.forEach((a) => {
+        const isActive = a.dataset.section === id;
+        const isPill = a.classList.contains('nav-link') || a.classList.contains('mobile-nav-link');
+        a.classList.toggle('text-md-primary', isActive);
+        a.classList.toggle('font-semibold', isActive && a.classList.contains('footer-nav-link'));
+        if (isPill) {
+          a.classList.toggle('bg-md-primary/10', isActive);
+          a.classList.toggle('text-md-on-surface-variant', !isActive);
+        } else if (!isActive) {
+          a.classList.add('text-md-on-surface-variant');
+        }
+      });
+    };
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+    trackedSections.forEach((s) => sectionObserver.observe(s));
+
+    // Project videos: only decode/play while their card is actually visible
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {
+              /* autoplay can be blocked by the browser; safe to ignore */
+            });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    document.querySelectorAll('.project-video').forEach((v) => videoObserver.observe(v));
+  </script>
+</body>
+</html>
